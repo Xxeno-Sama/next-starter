@@ -1,3 +1,7 @@
+"use client"
+
+import { useRef, useState } from "react"
+
 import Sidebar from "./_components/Sidebar"
 
 interface RootLayoutProps {
@@ -5,10 +9,20 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const [sidebarWidth, setSidebarWidth] = useState(300)
+
+  const onWidthChange = (newWidth: number) => {
+    setSidebarWidth(newWidth)
+  }
+
   return (
     <div className="flex h-full w-full">
-      <div className="w-[300px] ">
-        <Sidebar />
+      <div
+        style={{
+          width: `${sidebarWidth}px`,
+        }}
+      >
+        <Sidebar onWidthChange={onWidthChange} />
       </div>
       <div className="flex-1">{children}</div>
     </div>
