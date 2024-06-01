@@ -18,13 +18,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <div className="flex h-full w-full">
       <div
+        className={"hidden"}
         style={{
           width: `${sidebarWidth}px`,
         }}
       >
         <Sidebar onWidthChange={onWidthChange} />
       </div>
-      <div className="flex-1">{children}</div>
+      <div className="h-screen flex-1">{children}</div>
     </div>
   )
 }
