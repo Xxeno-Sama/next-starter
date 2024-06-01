@@ -25,6 +25,12 @@ export default function Home() {
           >
             Get Started
           </Link>
+          <Link
+            href={"/kanban"}
+            className={cn(buttonVariants({ size: "default" }))}
+          >
+            Kanban Board
+          </Link>
           <ModeToggle />
         </div>
       </div>
